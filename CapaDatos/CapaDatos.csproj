@@ -58,9 +58,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cita.cs" />
     <Compile Include="Cliente.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="ClienteRepositorioRES.cs" />
     <Compile Include="DatosCliente.cs" />
     <Compile Include="DatosEmpleados.cs" />
     <Compile Include="DatosLogin.cs" />

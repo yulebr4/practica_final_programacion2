@@ -49,5 +49,12 @@ namespace CapaNegocio
         {
             return metodos.Eliminar(id);
         }
+        public List<Empleado> MostrarDatosFiltrados(string filtroPuesto)
+        {
+            return metodos.MostrarDatos()
+                          .Where(emp => emp.Puesto.Contains(filtroPuesto)) // Filtrar por puesto
+                          .OrderBy(emp => emp.Nombre)                     // Ordenar por nombre
+                          .ToList();
+        }
     }
 }

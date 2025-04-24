@@ -34,10 +34,97 @@ namespace practica_final_programacion2
         }
 
         // Botón para guardar un nuevo empleado
-        private void btnGuardar_Click(object sender, EventArgs e)
+
+
+        private void btnSalir_Click(object sender, EventArgs e)
         {
-            try
+            Form menuPrincipal = Application.OpenForms["MenuPrincipal"];
+
+            if (menuPrincipal != null)
             {
+                menuPrincipal.Show(); // Muestra el menú principal
+            }
+
+            this.Close(); // Cierra el formulario secundario
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal; // Restaurar
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized; // Maximizar
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal; // Restaurar
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+
+            Form menuPrincipal = Application.OpenForms["MenuPrincipal"]; // Busca el formulario principal por su nombre
+            if (menuPrincipal != null)
+            {
+                menuPrincipal.Show(); // Muestra el menú principal
+            }
+            this.Close(); // Cierra el formulario secundario
+        }
+
+        private void txtSalario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números y la tecla de retroceso
+            // Permitir solo números, un punto decimal y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+
+            }
+        }
+
+        private void pictureBox4_Click_1(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal; // Restaurar
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                this.WindowState = FormWindowState.Maximized; // Maximizar
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal; // Restaurar
+            }
+        }
+
+        private void pictureBox5_Click_1(object sender, EventArgs e)
+        {
+            Form menuPrincipal = Application.OpenForms["MenuPrincipal"]; // Busca el formulario principal por su nombre
+            if (menuPrincipal != null)
+            {
+                menuPrincipal.Show(); // Muestra el menú principal
+            }
+            this.Close(); // Cierra el formulario secundario
+        }
+
+        private void btnGuardar_Click_1(object sender, EventArgs e)
+        {
+           try
+    {
                 EntidadEmpleados dat = new EntidadEmpleados
                 {
                     Nombre = txtNombre.Text,
@@ -49,15 +136,15 @@ namespace practica_final_programacion2
                 negocio.Guardar(dat);
                 MessageBox.Show("Empleado guardado correctamente.");
                 CargarDatos();
+                LimpiarCampos(); // Llamar al método para limpiar los campos
             }
-            catch (Exception ex)
-            {
+                catch (Exception ex)
+    {
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
 
-        // Botón para modificar un empleado
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnMostrar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -70,11 +157,13 @@ namespace practica_final_programacion2
                         Apellido = txtApellido.Text,
                         Puesto = txtPuesto.Text,
                         Salario = decimal.Parse(txtSalario.Text)
+
                     };
 
                     negocio.Modificar(dat);
                     MessageBox.Show("Empleado modificado correctamente.");
                     CargarDatos();
+
                 }
                 else
                 {
@@ -87,8 +176,7 @@ namespace practica_final_programacion2
             }
         }
 
-        // Botón para eliminar un empleado
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private void btnEliminar_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -109,5 +197,50 @@ namespace practica_final_programacion2
                 MessageBox.Show($"Error: {ex.Message}");
             }
         }
+
+        private void txtSalario_TextChanged(object sender, EventArgs e)
+        {
+         
+        }
+
+        private void txtSalario_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            // Permitir solo números, un punto decimal y la tecla de retroceso
+            if (!char.IsDigit(e.KeyChar) && e.KeyChar != '.' && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true;
+            }
+
+            // Permitir solo un punto decimal
+            if (e.KeyChar == '.' && (sender as TextBox).Text.Contains("."))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+        private void txtPuesto_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+        private void LimpiarCampos()
+        {
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtPuesto.Text = "";
+            txtSalario.Text = "";
+        }
     }
 }
+    
+    
+    

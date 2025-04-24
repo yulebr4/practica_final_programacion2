@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Buggies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Buggies.Designer.cs">
+      <DependentUpon>Buggies.cs</DependentUpon>
+    </Compile>
     <Compile Include="CitasRestaurantes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,6 +80,12 @@
     <Compile Include="Empleados.Designer.cs">
       <DependentUpon>Empleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Hacienda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Hacienda.Designer.cs">
+      <DependentUpon>Hacienda.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,14 +98,35 @@
     <Compile Include="MenuPrincipal.Designer.cs">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="NadoconDelfines.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NadoconDelfines.Designer.cs">
+      <DependentUpon>NadoconDelfines.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RestauranteDominicano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestauranteDominicano.Designer.cs">
+      <DependentUpon>RestauranteDominicano.cs</DependentUpon>
+    </Compile>
     <Compile Include="RestauranteItaliano.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="RestauranteItaliano.Designer.cs">
       <DependentUpon>RestauranteItaliano.cs</DependentUpon>
     </Compile>
+    <Compile Include="RestauranteMexicano.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RestauranteMexicano.Designer.cs">
+      <DependentUpon>RestauranteMexicano.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Buggies.resx">
+      <DependentUpon>Buggies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CitasRestaurantes.resx">
       <DependentUpon>CitasRestaurantes.cs</DependentUpon>
     </EmbeddedResource>
@@ -103,11 +136,17 @@
     <EmbeddedResource Include="Empleados.resx">
       <DependentUpon>Empleados.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Hacienda.resx">
+      <DependentUpon>Hacienda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MenuPrincipal.resx">
       <DependentUpon>MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NadoconDelfines.resx">
+      <DependentUpon>NadoconDelfines.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -119,8 +158,14 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="RestauranteDominicano.resx">
+      <DependentUpon>RestauranteDominicano.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="RestauranteItaliano.resx">
       <DependentUpon>RestauranteItaliano.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RestauranteMexicano.resx">
+      <DependentUpon>RestauranteMexicano.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -163,6 +208,45 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\png-clipart-flag-of-italy-italian-flag-angle-flag-thumbnail-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flat_750x_075_f-pad_750x1000_f8f8f8-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\el-conuco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1706778-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\12532-removebg-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\La-Hacienda-Park-Punta-Cana-Tour-Excursion-1357x905px-Stayhappyrd-1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\la-hacienda-234.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\WhatsApp-Image-2023-05-11-at-5.46.40-PM.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images-removebg-preview %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\images-removebg-preview %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\6372150-removebg-preview.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

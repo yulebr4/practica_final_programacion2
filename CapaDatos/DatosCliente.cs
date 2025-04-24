@@ -6,37 +6,33 @@ namespace CapaDatos
 {
     public class DatosClientes
     {
+       
         private readonly LaYuleTravelsEntities2 _context;
 
-        // Constructor
         public DatosClientes()
         {
-            try
-            {
-                // Inicializar el contexto sin pasar la cadena de conexión como parámetro
-                _context = new LaYuleTravelsEntities2();
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-                if (ex.InnerException != null)
-                {
-                    Console.WriteLine($"Inner Exception: {ex.InnerException.Message}");
-                }
-                throw;
-            }
+            _context = new LaYuleTravelsEntities2(); // Tu clase DbContext
         }
 
         public bool AgregarCliente(Cliente cliente)
         {
-            throw new NotImplementedException();
+            try
+            {
+                _context.Clientes.Add(cliente); // Agregar el cliente a la base de datos
+                _context.SaveChanges(); // Guardar los cambios en la base de datos
+                return true;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al agregar el cliente: {ex.Message}", ex);
+            }
         }
 
         public List<Cliente> ObtenerClientes()
         {
             try
             {
-                return _context.Clientes.ToList();
+                return _context.Clientes.ToList(); // Retorna todos los clientes
             }
             catch (Exception ex)
             {

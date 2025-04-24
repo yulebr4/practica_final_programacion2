@@ -17,7 +17,6 @@ namespace CapaNegocio
 
         public bool GuardarCliente(EntidadClientes entidadCliente)
         {
-            // Validar los datos de la entidad antes de enviarla a la capa de datos
             if (string.IsNullOrWhiteSpace(entidadCliente.Nombre) || string.IsNullOrWhiteSpace(entidadCliente.Apellido))
             {
                 throw new ArgumentException("El nombre y apellido son obligatorios.");
@@ -25,7 +24,7 @@ namespace CapaNegocio
 
             try
             {
-                // Crear un objeto Cliente y enviarlo a la capa de datos
+                // Mapear la entidad de negocio a la entidad del modelo de datos
                 Cliente cliente = new Cliente
                 {
                     Nombre = entidadCliente.Nombre,
@@ -44,10 +43,9 @@ namespace CapaNegocio
 
         public List<EntidadClientes> ObtenerClientes()
         {
-            // Obtener la lista de clientes de la capa de datos
             var clientes = _datosCliente.ObtenerClientes();
 
-            // Convertir entidades del modelo en entidades de negocio (DTOs)
+            // Convertir entidades del modelo en DTOs
             return clientes.Select(c => new EntidadClientes
             {
                 ID = c.ID,

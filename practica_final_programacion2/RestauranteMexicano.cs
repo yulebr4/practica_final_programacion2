@@ -1,5 +1,4 @@
-﻿using CapaDatos;
-using CapaNegocio;
+﻿using CapaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,38 +11,19 @@ using System.Windows.Forms;
 
 namespace practica_final_programacion2
 {
-    public partial class RestauranteItaliano : Form
+    public partial class RestauranteMexicano : Form
     {
         private readonly NegocioClientes _negocioClientes; // Declaración de _negocioClientes
         private MenuPrincipal _menuPrincipal;
 
-
-
-        public RestauranteItaliano()
+        public RestauranteMexicano()
         {
             InitializeComponent();
             _negocioClientes = new NegocioClientes(); // Inicialización de _negocioClientes
-            this.Load += RestauranteItaliano_Load;
+            this.Load += RestauranteMexicano_Load;
         }
 
-      
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            // Muestra el formulario principal (pasado como referencia)
-            Form menuPrincipal = Application.OpenForms["MenuPrincipal"]; // Busca el formulario principal por su nombre
-            if (menuPrincipal != null)
-            {
-                menuPrincipal.Show(); // Muestra el menú principal
-            }
-            this.Close(); // Cierra el formulario secundario
-        }
-
-        private void RestauranteItaliano_Load(object sender, EventArgs e)
+        private void RestauranteMexicano_Load(object sender, EventArgs e)
         {
             try
             {
@@ -53,9 +33,8 @@ namespace practica_final_programacion2
                 comboBoxClientes.DataSource = clientes;
                 comboBoxClientes.DisplayMember = "Nombre"; // Campo que se mostrará en el ComboBox
                 comboBoxClientes.ValueMember = "ID"; // Campo asociado al valor seleccionado
-                
-
-
+                comboBoxClientes.SelectedIndex = -1; // Asegúrate de que esté limpio
+                comboBoxClientes.Text = string.Empty; // Limpia el texto mostrado
             }
             catch (Exception ex)
             {
@@ -71,7 +50,6 @@ namespace practica_final_programacion2
             {
                 // Realizar la lógica de la reservación
                 MessageBox.Show($"Reservación exitosa para el cliente");
-
             }
             else
             {
@@ -81,13 +59,19 @@ namespace practica_final_programacion2
 
         private void comboBoxClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            comboBoxClientes.SelectedIndex = -1; // Limpia la selección
             comboBoxClientes.Text = string.Empty;
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        private void label4_Click(object sender, EventArgs e)
         {
-
+            // Muestra el formulario principal (pasado como referencia)
+            Form menuPrincipal = Application.OpenForms["MenuPrincipal"]; // Busca el formulario principal por su nombre
+            if (menuPrincipal != null)
+            {
+                menuPrincipal.Show(); // Muestra el menú principal
+            }
+            this.Close(); // Cierra el formulario secundario
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -116,6 +100,11 @@ namespace practica_final_programacion2
                 menuPrincipal.Show(); // Muestra el menú principal
             }
             this.Close(); // Cierra el formulario secundario
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
